@@ -1,12 +1,6 @@
-module.exports = (path) => {
-    const fs = require('fs');
-    const join = require('path').join;
-    const files = join(__dirname, path);
+const glob = require('glob');
+const path = require('path');
 
-    // Bootstrap models
-    fs
-        .readdirSync(files)
-        .filter(file => ~file.search(/^[^.].*\.js$/))
-        .forEach(file => require(join(files, file)))
-    ;
+module.exports = (exp) => {
+    glob.sync(exp).forEach(file => require(path.join(__dirname, file)))
 };

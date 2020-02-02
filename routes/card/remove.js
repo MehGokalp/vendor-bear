@@ -1,42 +1,30 @@
 const express = require('express');
 const router = express.Router();
-const debug = require('debug')('card-api:find');
-const cardRepository = require('../../repository/card');
+const domainService = require('../../domain/card/remove');
 
-router.delete('/remove/:reference', function (req, res) {
-    return (new Promise((resolve, reject) => {
-        let card = cardRepository.find({ reference: req.params.reference });
+const debug = require('debug')('card-api:remove');
 
-        if (!card) {
-            return reject();
-        }
+router.delete('/:reference', function (request, response) {
+    return new Promise(async (resolve) => {
+        resolve(domainService.createRequest(request));
+    }).then((findRequest) => {
+        domainService.validate(findRequest);
 
-        return resolve(card);
-    })).then(card => {
-        if (card.isActive() === false) {
-            return res.status(200).json({
-                'message': 'Card is not activated yet'
-            });
-        }
-
-        if (card.isExpired() === true) {
-            return res.status(200).json({
-                'message': 'Expired cards are can not removed'
-            });
-        }
-
-        cardRepository.remove({ reference: card.reference });
-
-        return res.status(200).json({
-            'message': 'Card successfully removed'
-        });
-    }, () => {
-        return res.status(404).json({
-            'message': 'Card not found'
-        })
+        return findRequest;
+    }).then((findRequest) => {
+        return domainService.call(findRequest)
+    }).then((serviceResponse) => {
+        return response.status(204).json(serviceResponse);
     }).catch(err => {
         debug(err);
-        return res.status(503).json({
+
+        if (err.name === 'ValidationError') {
+            return response.status(400).json({
+                'message': err.message
+            })
+        }
+
+        return response.status(503).json({
             'message': 'An error occurred. Please try again later.'
         })
     })

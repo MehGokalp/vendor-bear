@@ -24,9 +24,9 @@ const updateMany = async (query, dataSet, options) => {
 };
 
 module.exports = {
-    create: create,
-    find: find,
-    remove: remove,
-    updateOne: updateOne,
-    updateMany: updateMany,
+    create,
+    find,
+    remove,
+    updateOne,
+    updateMany,
 };

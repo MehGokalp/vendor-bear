@@ -67,7 +67,7 @@ const CardSchema = new Schema({
             validator: function(value) {
                 return /^[0-9]{3}$/.test(value);
             },
-            message: props => `${props.value} must be valid card number!`
+            message: props => `${props.value} must be valid cvc!`
         }
     },
     active: {
@@ -88,9 +88,6 @@ CardSchema.methods = {
     },
     isActive: function() {
         return this.active === true;
-    },
-    canSpend: (amount) => {
-        //TODO: Implement this method
     }
 };
 

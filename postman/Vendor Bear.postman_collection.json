@@ -11,14 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{wsUri}}/card/8cet3q8k3von67h",
+					"raw": "http://{{wsUri}}/card/4p3cq2cpk650en02",
 					"protocol": "http",
 					"host": [
 						"{{wsUri}}"
 					],
 					"path": [
 						"card",
-						"8cet3q8k3von67h"
+						"4p3cq2cpk650en02"
 					]
 				}
 			},
@@ -30,15 +30,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://{{wsUri}}/card/remove/8cet3q8k3von52o",
+					"raw": "http://{{wsUri}}/card/4p3cq2dck650il70",
 					"protocol": "http",
 					"host": [
 						"{{wsUri}}"
 					],
 					"path": [
 						"card",
-						"remove",
-						"8cet3q8k3von52o"
+						"4p3cq2dck650il70"
 					]
 				}
 			},
@@ -58,7 +57,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"currency\": \"TRY\",\n\t\"balance\": 100000,\n\t\"activationDate\": \"2020-05-20\",\n\t\"expireDate\": \"2020-05-20\"\n}",
+					"raw": "{\n\t\"currency\": \"TRY\",\n\t\"balance\": 100000,\n\t\"activationDate\": \"2020-05-20\",\n\t\"expireDate\": \"2020-05-21\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

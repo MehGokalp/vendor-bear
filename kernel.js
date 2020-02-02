@@ -1,4 +1,4 @@
 const loader = require('./loader');
-loader('models');
-loader('validators');
+loader('models/**.js');
+loader('domain/**/*.js');
 require('dotenv').config();
