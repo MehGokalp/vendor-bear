@@ -1,6 +1,8 @@
 const validator = require('../../../service/validator');
 const cardRepository = require('../../../repository/card');
 
+const { ResourceNotFoundError, ResourceNotActivatedError, ValidationError, InternalError } = require('../../../errors');
+
 module.exports = {
     createRequest: request => {
         return {
@@ -11,22 +13,22 @@ module.exports = {
         const isValid = validator.validate('removeCard', request);
 
         if (isValid === false) {
-            throw new Error(validator.errorsText());
+            throw new ValidationError(validator.errorsText());
         }
     },
     call: async request => {
         const card = await cardRepository.find({ reference: request.reference });
 
         if (!card) {
-            throw new Error(`Card not found with reference: ${request.reference}`);
+            throw new ResourceNotFoundError(`Card not found with reference: ${request.reference}`);
         }
 
         if (card.isActive() === false) {
-            throw new Error(`Card is not activated yet. Reference: ${request.reference}`);
+            throw new ResourceNotActivatedError(`Card is not activated yet. Reference: ${request.reference}`);
         }
 
         if (card.isExpired() === true) {
-            throw new Error(`Expired cards can not remove. Reference: ${request.reference}`);
+            throw new InternalError(`Expired cards can not remove. Reference: ${request.reference}`);
         }
 
         await cardRepository.remove({ reference: card.reference });

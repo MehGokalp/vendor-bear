@@ -2,6 +2,8 @@ const validator = require('../../../service/validator');
 const cardRepository = require('../../../repository/card');
 const cardService = require('../../../service/card');
 
+const { ValidationError } = require('../../../errors');
+
 module.exports = {
     createRequest: request => {
         return {
@@ -15,7 +17,7 @@ module.exports = {
         const isValid = validator.validate('createCard', request);
 
         if (isValid === false) {
-            throw new Error(validator.errorsText());
+            throw new ValidationError(validator.errorsText());
         }
     },
     call: async request => {
