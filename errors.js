@@ -23,14 +23,14 @@ class ResourceNotFoundError extends DomainError {
 
 class ResourceNotActivatedError extends DomainError {
     constructor(resource, query) {
-        super(`Resource ${resource} was not found.`);
+        super(`Resource ${resource} not activated.`);
         this.data = { resource, query };
     }
 }
 
 class ValidationError extends DomainError {
     constructor(resource, query) {
-        super(`Resource ${resource} was not found.`);
+        super(`Resource ${resource} is not valid.`);
         this.data = { resource, query };
     }
 }
