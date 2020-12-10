@@ -15,6 +15,8 @@ module.exports = {
         if (isValid === false) {
             throw new ValidationError(validator.errorsText());
         }
+
+        return request;
     },
     call: async request => {
         const card = await cardRepository.find({ reference: request.reference });

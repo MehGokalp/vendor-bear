@@ -8,7 +8,7 @@ const utils = require('../service/utils');
 
 const populate = (card) => {
     if (!card.reference) {
-        card.reference = idGenerator().slice(0, 16);
+        card.reference = idGenerator().slice(0, 17);
     }
 
     if (!card.cardNumber) {

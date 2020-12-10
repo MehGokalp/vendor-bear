@@ -1,33 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const domainService = require('../../domain/card/create');
+const errorHandler = require('../../handler/errorHandler');
 
-const debug = require('debug')('card-api:create');
-
-router.post('/create', function (request, response) {
-    return new Promise(async (resolve) => {
-        resolve(domainService.createRequest(request));
-    }).then((createRequest) => {
-        domainService.validate(createRequest);
-
-        return createRequest;
-    }).then((createRequest) => {
-        return domainService.call(createRequest)
-    }).then((serviceResponse) => {
-        return response.status(201).json(serviceResponse);
-    }).catch(err => {
-        debug(err);
-
-        if (err.name === 'ValidationError') {
-            return response.status(400).json({
-                'message': err.message
-            })
-        }
-
-        return response.status(503).json({
-            'message': 'An error occurred. Please try again later.'
-        })
-    })
+router.post('/', function (request, response) {
+    return Promise.resolve(domainService.createRequest(request))
+        .then(createRequest => domainService.validate(createRequest))
+        .then(createRequest => domainService.call(createRequest))
+        .then(serviceResponse => response.status(201).json(serviceResponse))
+        .catch(err => errorHandler(err, response))
 });
 
 module.exports = router;

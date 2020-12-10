@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4fa52970-fb82-4517-83ee-bfc2e2076f88",
+		"_postman_id": "dda50138-221f-4bfe-a347-08c23e977c30",
 		"name": "Vendor Bear",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,14 +11,21 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{wsUri}}/card/4p3cq2cpk650en02",
+					"raw": "http://{{wsUri}}/card/:reference",
 					"protocol": "http",
 					"host": [
 						"{{wsUri}}"
 					],
 					"path": [
 						"card",
-						"4p3cq2cpk650en02"
+						":reference"
+					],
+					"variable": [
+						{
+							"key": "reference",
+							"value": "",
+							"description": "7k7q81odkij66nvz"
+						}
 					]
 				}
 			},
@@ -30,14 +37,21 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://{{wsUri}}/card/4p3cq2dck650il70",
+					"raw": "http://{{wsUri}}/card/:reference",
 					"protocol": "http",
 					"host": [
 						"{{wsUri}}"
 					],
 					"path": [
 						"card",
-						"4p3cq2dck650il70"
+						":reference"
+					],
+					"variable": [
+						{
+							"key": "reference",
+							"value": "",
+							"description": "7k7q81odkij66nvz"
+						}
 					]
 				}
 			},
@@ -57,7 +71,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"currency\": \"TRY\",\n\t\"balance\": 100000,\n\t\"activationDate\": \"2020-05-20\",\n\t\"expireDate\": \"2020-05-21\"\n}",
+					"raw": "{\n\t\"currency\": \"TRY\",\n\t\"balance\": 100000,\n\t\"activationDate\": \"2021-09-20\",\n\t\"expireDate\": \"2021-09-21\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -65,14 +79,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{wsUri}}/card/create",
+					"raw": "http://{{wsUri}}/",
 					"protocol": "http",
 					"host": [
 						"{{wsUri}}"
 					],
 					"path": [
-						"card",
-						"create"
+						""
 					]
 				}
 			},
