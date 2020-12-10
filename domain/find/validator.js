@@ -1,4 +1,4 @@
-const validator = require('../../../service/validator');
+const validator = require('../../service/validator');
 
 const schema = {
     properties: {
@@ -7,4 +7,4 @@ const schema = {
     required: [ 'reference' ]
 };
 
-validator.addSchema(schema, 'removeCard');
+validator.addSchema(schema, 'findCard');

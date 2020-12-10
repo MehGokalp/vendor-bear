@@ -11,20 +11,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{wsUri}}/card/:reference",
+					"raw": "http://{{wsUri}}/:reference",
 					"protocol": "http",
 					"host": [
 						"{{wsUri}}"
 					],
 					"path": [
-						"card",
 						":reference"
 					],
 					"variable": [
 						{
 							"key": "reference",
-							"value": "",
-							"description": "7k7q81odkij66nvz"
+							"value": "hqi9b3dqkij8miz2"
 						}
 					]
 				}
@@ -37,20 +35,18 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://{{wsUri}}/card/:reference",
+					"raw": "http://{{wsUri}}/:reference",
 					"protocol": "http",
 					"host": [
 						"{{wsUri}}"
 					],
 					"path": [
-						"card",
 						":reference"
 					],
 					"variable": [
 						{
 							"key": "reference",
-							"value": "",
-							"description": "7k7q81odkij66nvz"
+							"value": "hqi9b3dqkij8miz2"
 						}
 					]
 				}

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const domainService = require('../../domain/card/create');
-const errorHandler = require('../../handler/errorHandler');
+const domainService = require('../domain/create');
+const errorHandler = require('../handler/errorHandler');
 
 router.post('/', function (request, response) {
     return Promise.resolve(domainService.createRequest(request))

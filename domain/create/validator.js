@@ -1,4 +1,4 @@
-const validator = require('../../../service/validator');
+const validator = require('../../service/validator');
 
 const schema = {
     properties: {

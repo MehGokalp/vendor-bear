@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const domainService = require('../../domain/card/find');
-const errorHandler = require('../../handler/errorHandler');
+const domainService = require('../domain/find');
+const errorHandler = require('../handler/errorHandler');
 
 router.get('/:reference', function (request, response) {
     return Promise.resolve(domainService.createRequest(request))

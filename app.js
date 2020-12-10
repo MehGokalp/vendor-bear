@@ -20,10 +20,9 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use('/', require('./routes/index'));
-app.use('/', require('./routes/card/create'));
-app.use('/', require('./routes/card/find'));
-app.use('/', require('./routes/card/remove'));
+app.use(require('./routes/create'));
+app.use(require('./routes/find'));
+app.use(require('./routes/remove'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

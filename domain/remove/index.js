@@ -1,14 +1,15 @@
-const validator = require('../../../service/validator');
-const cardRepository = require('../../../repository/card');
-
-const { ResourceNotFoundError, ResourceNotActivatedError, ValidationError, InternalError } = require('../../../errors');
+const validator = require('../../service/validator');
+const cardRepository = require('../../repository/card');
+const requestFactory = require('./request');
+const {
+    ResourceNotFoundError,
+    ResourceNotActivatedError,
+    ValidationError,
+    InternalError
+} = require('../../errors');
 
 module.exports = {
-    createRequest: request => {
-        return {
-            reference: request.params.reference
-        };
-    },
+    createRequest: request => requestFactory(request),
     validate: request => {
         const isValid = validator.validate('removeCard', request);
 
