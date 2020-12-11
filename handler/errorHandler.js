@@ -1,3 +1,5 @@
+const debug = require('debug')('card-api');
+
 module.exports = (err, response) => {
     if (err.name === 'ValidationError') {
         return response.status(400).json({

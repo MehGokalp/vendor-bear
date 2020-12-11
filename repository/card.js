@@ -1,3 +1,4 @@
+require('../models/card');
 const cardSchema = require('mongoose').model('Card');
 
 const create = async (data) => {

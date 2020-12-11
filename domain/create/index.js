@@ -1,4 +1,4 @@
-const validator = require('../../service/validator');
+const validator = require('./validator');
 const cardRepository = require('../../repository/card');
 const cardService = require('../../service/card');
 const requestFactory = require('./request');
