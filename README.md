@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/MehGokalp/vendor-bear.svg?branch=master)](https://travis-ci.org/MehGokalp/vendor-bear) [![codecov](https://codecov.io/gh/MehGokalp/vendor-bear/branch/master/graph/badge.svg)](https://codecov.io/gh/MehGokalp/vendor-bear)
+[![Build Status](https://travis-ci.com/MehGokalp/vendor-bear.svg?branch=master)](https://travis-ci.com/MehGokalp/vendor-bear) [![codecov](https://codecov.io/gh/MehGokalp/vendor-bear/branch/master/graph/badge.svg)](https://codecov.io/gh/MehGokalp/vendor-bear)
 
 # Welcome to VENDOR BEAR API
 This API allows you to create, remove and list virtual cards. We can think this project as a VCC provider.  
