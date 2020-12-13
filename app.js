@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 
 app.use(require('./routes/create'));
 app.use(require('./routes/find'));
-app.use(require('./routes/remove'));
+app.use(require('./routes/delete'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

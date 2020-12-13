@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const domainService = require('../domain/remove');
+const domainService = require('../domain/delete');
 const errorHandler = require('../handler/errorHandler');
 
 router.delete('/:reference', function (request, response) {

@@ -7,6 +7,6 @@ const schema = {
     required: [ 'reference' ]
 };
 
-validator.addSchema(schema, 'removeCard');
+validator.addSchema(schema, 'deleteCard');
 
 module.exports = validator;

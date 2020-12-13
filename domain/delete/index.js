@@ -11,7 +11,7 @@ const {
 module.exports = {
     createRequest: request => requestFactory(request),
     validate: request => {
-        const isValid = validator.validate('removeCard', request);
+        const isValid = validator.validate('deleteCard', request);
 
         if (isValid === false) {
             throw new ValidationError(validator.errorsText());
@@ -34,6 +34,6 @@ module.exports = {
             throw new InternalError(`Expired cards can not remove. Reference: ${request.reference}`);
         }
 
-        await cardRepository.remove({ reference: card.reference });
+        await cardRepository.delete({ reference: card.reference });
     }
 };
