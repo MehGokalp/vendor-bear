@@ -9,4 +9,4 @@ services:
 cache: npm
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -f tests/coverage/coverage-final.json
+  - bash <(curl -s https://codecov.io/bash) -f coverage/coverage-final.json
